@@ -171,14 +171,21 @@ function GestureEditor({
                 : 'Select Keys'}
             </button>
             {showKeySelector && (
-              <div className="key-selector-popup">
-                <KeySelector
-                  selectedKeys={gesture.action.keys}
-                  onChange={(keys) =>
-                    onChange({ ...gesture, action: { type: 'Keypress', keys } })
-                  }
-                />
-              </div>
+              <>
+                <div className="key-selector-overlay" onClick={() => setShowKeySelector(false)} />
+                <div className="key-selector-popup">
+                  <div className="popup-header">
+                    <h4>Select Keys</h4>
+                    <button className="close-btn" onClick={() => setShowKeySelector(false)}>&times;</button>
+                  </div>
+                  <KeySelector
+                    selectedKeys={gesture.action.keys}
+                    onChange={(keys) =>
+                      onChange({ ...gesture, action: { type: 'Keypress', keys } })
+                    }
+                  />
+                </div>
+              </>
             )}
           </div>
         )}
@@ -328,10 +335,19 @@ export function ButtonConfig({ button, action, onChange }: ButtonConfigProps) {
                   : 'Click to select keys'}
               </button>
               {showKeySelector && (
-                <KeySelector
-                  selectedKeys={action.keys}
-                  onChange={(keys) => onChange({ type: 'Keypress', keys })}
-                />
+                <>
+                  <div className="key-selector-overlay" onClick={() => setShowKeySelector(false)} />
+                  <div className="key-selector-popup">
+                    <div className="popup-header">
+                      <h4>Select Keys</h4>
+                      <button className="close-btn" onClick={() => setShowKeySelector(false)}>&times;</button>
+                    </div>
+                    <KeySelector
+                      selectedKeys={action.keys}
+                      onChange={(keys) => onChange({ type: 'Keypress', keys })}
+                    />
+                  </div>
+                </>
               )}
             </div>
           )}
