@@ -1,0 +1,862 @@
+/* App Layout */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 3px solid #00d9ff;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.app-header p {
+  margin: 0.5rem 0 0;
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+.app-main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.app-footer {
+  background: #1a1a2e;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.app-footer a {
+  color: #00d9ff;
+}
+
+/* Device Selector */
+.device-selector {
+  margin-bottom: 2rem;
+}
+
+.device-selector h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.device-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.device-card:hover {
+  border-color: #00d9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+}
+
+.device-card.selected {
+  border-color: #00d9ff;
+  background: linear-gradient(135deg, #f0fcff 0%, #e6f9ff 100%);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+}
+
+.device-icon {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.device-card.selected .device-icon {
+  color: #00d9ff;
+}
+
+.device-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.device-card .device-name {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.device-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.device-specs span {
+  background: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+/* Config Container */
+.config-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 1200px) {
+  .config-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.config-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.config-panel h2 {
+  margin: 0 0 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #00d9ff;
+  padding-bottom: 0.5rem;
+}
+
+.preview-panel {
+  position: sticky;
+  top: 1rem;
+}
+
+/* Config Sections */
+.config-section {
+  background: #fafafa;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e8e8e8;
+}
+
+.config-section h3 {
+  margin: 0 0 0.5rem;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.section-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.config-row {
+  margin-bottom: 1rem;
+}
+
+.config-row:last-child {
+  margin-bottom: 0;
+}
+
+.config-row label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #444;
+  font-weight: 500;
+}
+
+.field-description {
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0.25rem 0 0.5rem;
+}
+
+/* Toggle Labels */
+.toggle-label {
+  display: flex !important;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.toggle-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #00d9ff;
+}
+
+.toggle-text {
+  font-weight: 500;
+}
+
+/* Range Inputs */
+input[type="range"] {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #e0e0e0;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #00d9ff;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]:disabled {
+  opacity: 0.5;
+}
+
+.range-labels,
+.dpi-range {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.25rem;
+}
+
+/* DPI Config */
+.dpi-control label {
+  font-size: 1rem;
+}
+
+.dpi-control label strong {
+  color: #00d9ff;
+  font-size: 1.2rem;
+}
+
+.dpi-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.dpi-presets > span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.preset-btn {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+.preset-btn.active {
+  background: #00d9ff;
+  color: white;
+  border-color: #00d9ff;
+}
+
+/* Button Config */
+.buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.button-config {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.button-config.expanded {
+  border-color: #00d9ff;
+}
+
+.button-header {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.button-header:hover {
+  background: #f8f8f8;
+}
+
+.button-info {
+  flex: 1;
+}
+
+.button-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.button-cid {
+  font-size: 0.75rem;
+  color: #888;
+  margin-left: 0.5rem;
+  font-family: monospace;
+}
+
+.button-action-summary {
+  color: #00d9ff;
+  font-size: 0.85rem;
+}
+
+.expand-icon {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.button-body {
+  padding: 1rem;
+  background: #fafafa;
+  border-top: 1px solid #e0e0e0;
+}
+
+.button-description {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+.action-type-select {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.action-type-select label {
+  font-weight: 500;
+  color: #444;
+}
+
+.action-type-select select {
+  flex: 1;
+  max-width: 300px;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.action-config {
+  margin-top: 1rem;
+}
+
+.action-config label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.action-config input[type="text"],
+.action-config input[type="number"] {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Gestures */
+.gestures-config {
+  margin-top: 1rem;
+}
+
+.gestures-help {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0 1rem;
+}
+
+.gestures-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.gesture-editor {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+}
+
+.gesture-direction {
+  width: 60px;
+  font-weight: 600;
+  color: #333;
+}
+
+.gesture-config {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.gesture-config select,
+.gesture-config input {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.gesture-config select {
+  min-width: 120px;
+}
+
+.inline-key-config {
+  position: relative;
+}
+
+.edit-keys-btn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.85rem;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.edit-keys-btn.large {
+  width: 100%;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.key-selector-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 100;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  padding: 1rem;
+  min-width: 400px;
+  max-width: 500px;
+}
+
+/* Key Selector */
+.key-selector {
+  margin-top: 1rem;
+}
+
+.selected-keys {
+  margin-bottom: 1rem;
+}
+
+.selected-keys label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.key-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-height: 32px;
+  padding: 0.5rem;
+  background: #f8f8f8;
+  border-radius: 4px;
+}
+
+.no-keys {
+  color: #999;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.key-chip {
+  background: #00d9ff;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.key-chip:hover {
+  background: #00b8d9;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.category-tab {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+}
+
+.category-tab.active {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
+
+.key-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.35rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.key-btn {
+  padding: 0.35rem;
+  font-size: 0.8rem;
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+}
+
+.key-btn.selected {
+  background: #00d9ff;
+  color: white;
+  border-color: #00d9ff;
+}
+
+/* Config Preview */
+.config-preview {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: #1a1a2e;
+  color: white;
+}
+
+.preview-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.preview-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.copy-btn {
+  background: #444;
+  color: white;
+  border: none;
+}
+
+.copy-btn:hover {
+  background: #555;
+}
+
+.download-btn {
+  background: #00d9ff;
+  color: white;
+  border: none;
+}
+
+.download-btn:hover {
+  background: #00b8d9;
+}
+
+.preview-content {
+  padding: 1rem;
+  background: #2d2d2d;
+  max-height: 400px;
+  overflow: auto;
+}
+
+.preview-content pre {
+  margin: 0;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.preview-content code {
+  color: #e6e6e6;
+  white-space: pre;
+}
+
+.preview-instructions {
+  padding: 1.25rem;
+  background: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
+}
+
+.preview-instructions h4 {
+  margin: 0 0 0.75rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.preview-instructions ol {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #555;
+}
+
+.preview-instructions li {
+  margin-bottom: 0.75rem;
+}
+
+.preview-instructions code {
+  background: #e8e8e8;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.85rem;
+}
+
+.preview-instructions pre {
+  background: #333;
+  color: #00ff88;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+  overflow-x: auto;
+}
+
+.preview-instructions .note {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #fff3cd;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #856404;
+}
+
+.preview-instructions .note a {
+  color: #0056b3;
+}
+
+/* Light mode body background */
+@media (prefers-color-scheme: light) {
+  body {
+    background: #f5f5f5;
+  }
+
+  .device-selector h2 {
+    color: #333;
+  }
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1a1a1a;
+  }
+
+  .device-selector h2 {
+    color: #eee;
+  }
+
+  .device-card {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .device-card:hover {
+    border-color: #00d9ff;
+  }
+
+  .device-card.selected {
+    background: linear-gradient(135deg, #1a2a30 0%, #152530 100%);
+  }
+
+  .device-card h3 {
+    color: #eee;
+  }
+
+  .device-specs span {
+    background: #444;
+    color: #ccc;
+  }
+
+  .config-panel {
+    background: #2d2d2d;
+  }
+
+  .config-panel h2 {
+    color: #eee;
+  }
+
+  .config-section {
+    background: #333;
+    border-color: #444;
+  }
+
+  .config-section h3 {
+    color: #eee;
+  }
+
+  .section-description,
+  .field-description {
+    color: #aaa;
+  }
+
+  .config-row label,
+  .toggle-text {
+    color: #ddd;
+  }
+
+  .button-config {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .button-header:hover {
+    background: #383838;
+  }
+
+  .button-name {
+    color: #eee;
+  }
+
+  .button-body {
+    background: #333;
+    border-color: #444;
+  }
+
+  .button-description {
+    color: #aaa;
+  }
+
+  .action-type-select label {
+    color: #ddd;
+  }
+
+  .action-type-select select,
+  .gesture-config select,
+  .gesture-config input,
+  .action-config input {
+    background: #444;
+    border-color: #555;
+    color: #eee;
+  }
+
+  .gesture-editor {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .gesture-direction {
+    color: #eee;
+  }
+
+  .key-selector-popup {
+    background: #2d2d2d;
+    border-color: #444;
+  }
+
+  .key-chips {
+    background: #333;
+  }
+
+  .category-tab {
+    background: #444;
+    border-color: #555;
+    color: #ddd;
+  }
+
+  .key-btn {
+    background: #444;
+    border-color: #555;
+    color: #ddd;
+  }
+
+  .edit-keys-btn {
+    background: #444;
+    border-color: #555;
+    color: #ddd;
+  }
+
+  .preset-btn {
+    background: #444;
+    border-color: #555;
+    color: #ddd;
+  }
+
+  .preview-instructions {
+    background: #333;
+    border-color: #444;
+  }
+
+  .preview-instructions h4 {
+    color: #eee;
+  }
+
+  .preview-instructions ol {
+    color: #ccc;
+  }
+
+  .preview-instructions code {
+    background: #444;
+    color: #eee;
+  }
+
+  .preview-instructions .note {
+    background: #4a4020;
+    color: #ffc107;
+  }
+}
