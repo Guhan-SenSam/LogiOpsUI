@@ -165,8 +165,33 @@ export const devices: DeviceDefinition[] = [
       {
         cid: 0x01a0,
         name: 'Thumb Button',
-        description: 'Additional thumb button below gesture button',
-        defaultAction: { type: 'Keypress' as const, keys: ['KEY_LEFTMETA'] },
+        description: 'Additional thumb button below gesture button - supports gestures',
+        supportsGestures: true,
+        defaultAction: {
+          type: 'Gestures' as const,
+          gestures: [
+            {
+              direction: 'Up' as const,
+              mode: 'OnRelease' as const,
+              action: { type: 'Keypress' as const, keys: ['KEY_UP'] },
+            },
+            {
+              direction: 'Down' as const,
+              mode: 'OnRelease' as const,
+              action: { type: 'Keypress' as const, keys: ['KEY_DOWN'] },
+            },
+            {
+              direction: 'Left' as const,
+              mode: 'OnRelease' as const,
+              action: { type: 'Keypress' as const, keys: ['KEY_LEFT'] },
+            },
+            {
+              direction: 'Right' as const,
+              mode: 'OnRelease' as const,
+              action: { type: 'Keypress' as const, keys: ['KEY_RIGHT'] },
+            },
+          ],
+        },
       },
     ],
   },
